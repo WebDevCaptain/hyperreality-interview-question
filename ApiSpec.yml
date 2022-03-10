@@ -1,0 +1,225 @@
+swagger: "2.0"
+info:
+  description: This is a sample API for railway Passengers
+  version: "1.0.0"
+  title: Passenger REST API
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /passengers:
+    get:
+      operationId: handlers.read_all
+      tags:
+        - Passenger
+      summary: Read the entire set of passengers
+      description: Read the entire set of passengers
+      responses:
+        200:
+          description: Successfully read passengers set operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: ID of the Passenger
+                aadhar_no:
+                  type: string
+                  description: Aadhar Number of Passenger
+                checked:
+                  type: boolean
+                  description: Check status for baggage of the passenger
+                name:
+                  type: string
+                  description: Name of the passenger
+                age:
+                  type: integer
+                  description: Age of the passenger
+                type:
+                  type: string
+                  description: Type/Category of Train, Eg AC or Non-AC
+                description:
+                  type: string
+                  description: Small description of passenger with route
+                date:
+                  type: string
+                  description: Creation/Update timestamp of the passenger
+
+    post:
+      operationId: handlers.create
+      tags:
+        - Passenger
+      summary: Create a Passenger
+      description: Create a new Passenger
+      parameters:
+        - name: passenger
+          in: body
+          description: Passenger to create
+          schema:
+            type: object
+            properties:
+              checked:
+                type: boolean
+                description: Check status for baggage of the passenger
+              name:
+                type: string
+                description: Name of the passenger
+              age:
+                type: integer
+                description: Age of the passenger
+              type:
+                type: string
+                description: Type/Category of Train, Eg AC or Non-AC
+              description:
+                type: string
+                description: Small description of passenger with route
+              aadhar_no:
+                type: string
+                description: Aadhar Number of Passenger
+      responses:
+        201:
+          description: Successfully created Passenger
+          schema:
+            properties:
+              checked:
+                type: boolean
+                description: Check status for baggage of the passenger
+              name:
+                type: string
+                description: Name of the passenger
+              aadhar_no:
+                type: string
+                description: Aadhar Number of Passenger
+              age:
+                type: integer
+                description: Age of the passenger
+              type:
+                type: string
+                description: Type/Category of Train, Eg AC or Non-AC
+              description:
+                type: string
+                description: Small description of passenger with route
+
+  /passenger/{passenger_id}:
+    get:
+      operationId: handlers.read_one
+      tags:
+        - Passenger
+      summary: Read one passenger
+      description: Read one passenger
+      parameters:
+        - name: passenger_id
+          in: path
+          description: Id of the passenger to get
+          type: integer
+          required: true
+      responses:
+        200:
+          description: Successfully read a passenger from passengers data operation
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the Passenger
+              aadhar_no:
+                type: string
+                description: Aadhar Number of Passenger
+              checked:
+                type: boolean
+                description: Check status for baggage of the passenger
+              name:
+                type: string
+                description: Name of the passenger
+              age:
+                type: integer
+                description: Age of the passenger
+              type:
+                type: string
+                description: Type/Category of Train, Eg AC or Non-AC
+              description:
+                type: string
+                description: Small description of passenger with route
+              date:
+                type: string
+                description: Creation/Update timestamp of the passenger
+
+    delete:
+      operationId: handlers.delete
+      tags:
+        - Passenger
+      summary: Delete a passenger from the passengers list
+      description: Delete a Passenger
+      parameters:
+        - name: passenger_id
+          in: path
+          type: integer
+          description: Id of the passenger to delete
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a passenger
+
+    put:
+      operationId: handlers.update
+      tags:
+        - Passenger
+      summary: Update a passenger
+      description: Update a passenger
+      parameters:
+        - name: passenger_id
+          in: path
+          description: Id the passenger to update
+          type: integer
+          required: True
+        - name: passenger
+          in: body
+          schema:
+            type: object
+            properties:
+              checked:
+                type: boolean
+                description: Check status for baggage of the passenger
+              name:
+                type: string
+                description: Name of the passenger
+              age:
+                type: integer
+                description: Age of the passenger
+              type:
+                type: string
+                description: Type/Category of Train, Eg AC or Non-AC
+              description:
+                type: string
+                description: Small description of passenger with route
+              aadhar_no:
+                type: string
+                description: Aadhar Number of Passenger
+      responses:
+        200:
+          description: Successfully updated passenger
+          schema:
+            properties:
+              checked:
+                type: boolean
+                description: Check status for baggage of the passenger
+              name:
+                type: string
+                description: Name of the passenger
+              age:
+                type: integer
+                description: Age of the passenger
+              type:
+                type: string
+                description: Type/Category of Train, Eg AC or Non-AC
+              description:
+                type: string
+                description: Small description of passenger with route
+              aadhar_no:
+                type: string
+                description: Aadhar Number of Passenger

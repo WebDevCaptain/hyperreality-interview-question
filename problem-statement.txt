@@ -1,0 +1,59 @@
+In this step, we will be evaluating your learning capabilities and problem solving skills. Hope you will be learning a lot by doing this assignment. 
+
+
+It is not expected for you to know all these frameworks and technologies upfront. What we are only interested in is evaluating how quickly you can learn and adapt frameworks like these. Please go through each of the framework’s documentation and try to complete the assignment in the simplest manner using these frameworks/tools. 
+
+
+
+Assignment
+
+
+You have to create a simple RESTful API using the following frameworks and packages in python.
+
+
+Connexion - https://github.com/zalando/connexion
+
+Open API Specification - https://swagger.io/specification/
+
+SQLAlchemy - https://www.sqlalchemy.org/
+
+Marshmallow - https://marshmallow.readthedocs.io/en/stable/
+
+Marshmallow-sqlalchemy - https://marshmallow-sqlalchemy.readthedocs.io/en/latest/
+
+Pytest - https://docs.pytest.org/en/6.2.x/
+
+
+
+By using these tools, create a RESTful API for the CRUD(Create, Read, Update, Delete) operations for a single model. Also you need to write basic unit tests to test the API. Model fields are listed below.
+
+
+Model Fields
+
+
+Id: Integer
+
+Checked: Boolean
+
+Name: String
+
+Type : String
+
+Age: Number
+
+Description: String
+
+Date: Datetime
+
+
+
+Things to remember:
+
+API Specification should be written in OpenAPI Specification format and routing and validations should be based on the OpenAPI Spec file you created.
+
+You may use any Databases like Sqlite/Postgres/MySql and the models should be defined using SQLAlchemy.
+
+Schema should be defined with marshmallow and marshmallow-sqlalchemy. 
+
+Tests are required for each route created. At least 2 tests for each route.
+
