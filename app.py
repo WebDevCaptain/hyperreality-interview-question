@@ -6,7 +6,10 @@ connexion_app.add_api("ApiSpec.yml")
 
 @connexion_app.route("/")
 def home():
-    return make_response("Welcome to Passenger API", 200)
+    return make_response(
+        "Welcome to Passenger API. Please visit the github repo to find out more on the usage of this API",
+        200,
+    )
 
 
 @connexion_app.app.before_first_request
