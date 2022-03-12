@@ -1,5 +1,5 @@
 from flask import make_response
-from server_config import connexion_app
+from server_config import connexion_app, db
 
 connexion_app.add_api("ApiSpec.yml")
 
@@ -7,6 +7,11 @@ connexion_app.add_api("ApiSpec.yml")
 @connexion_app.route("/")
 def home():
     return make_response("Welcome to Passenger API", 200)
+
+
+@connexion_app.app.before_first_request
+def create_tables():
+    db.create_all()
 
 
 if __name__ == "__main__":
