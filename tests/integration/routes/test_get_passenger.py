@@ -21,7 +21,7 @@ def test_get_passenger_res_status(test_client):
     passenger = new_passenger()
 
     res = test_client.get(f"/api/passenger/{passenger.id}")
-    assert res.status_code == 200
+    assert res.status_code == 201
 
 
 def test_get_passenger_res_length(test_client):
